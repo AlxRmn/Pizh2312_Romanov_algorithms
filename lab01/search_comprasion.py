@@ -81,3 +81,33 @@ for size in sizes:
     print("{:>10} {:>15.4f} {:>15.4f}".format(size, lin_time, bin_time))
 
 
+# Построение графиков
+plt.figure(figsize=(10, 6))
+plt.plot(sizes, linear_times, 'bo-', label='Линейный поиск O(n)')
+plt.plot(sizes, binary_times, 'ro-', label='Бинарный поиск O(log n)')
+plt.xlabel('Размер массива (n)')
+plt.ylabel('Время выполнения (мс)')
+plt.title('Сравнение линейного и бинарного поиска')
+plt.grid(True, linestyle='--', linewidth=0.5)
+plt.legend()
+plt.savefig('search_comparison.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# График в логарифмическом масштабе
+plt.figure(figsize=(10, 6))
+plt.plot(sizes, linear_times, 'bo-', label='Линейный поиск O(n)')
+plt.plot(sizes, binary_times, 'ro-', label='Бинарный поиск O(log n)')
+plt.xlabel('Размер массива (n)')
+plt.ylabel('Время выполнения (мс)')
+plt.yscale('log')
+plt.title('Сравнение поиска (логарифмическая шкала по Y)')
+plt.grid(True, linestyle='--', linewidth=0.5)
+plt.legend()
+plt.savefig('search_comparison_log.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# Анализ результатов
+print("\nАнализ результатов:")
+print("1. Теоретическая сложность линейного поиска: O(n).")
+print("2. Теоретическая сложность бинарного поиска: O(log n).")
+print("3. Графики подтверждают асимптотику: бинарный поиск растет значительно медленнее.")
