@@ -13,7 +13,7 @@ def calculate_sum_from_file(filename: str) -> None:
     """
     # O(1) — открытие файла
     with open(filename, 'r', encoding='utf-8') as f:
-        lines = f.readlines()  # O(1), т.к. в файле фиксированное количество чисел (2 строки)
+        lines = f.readlines()  # O(1), т.к. в файле фиксированно чисел (2 строки)
 
     print("Содержимое файла:")
     for line in lines:  # O(1), цикл фиксированной длины (2 строки)

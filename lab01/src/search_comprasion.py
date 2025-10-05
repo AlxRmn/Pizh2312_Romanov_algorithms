@@ -38,11 +38,9 @@ def binary_search(arr: List[int], target: int) -> Optional[int]:
     # Общая сложность: O(log n)
 
 
-def measure_time(func, arr: List[int], target: int, runs: int = 10) -> float:
+def measure_time(func, arr: List[int], target: int, runs: int = 1000) -> float:
     """Измеряет среднее время выполнения функции (в миллисекундах)."""
-    total_time: float = timeit.timeit(
-        lambda: func(arr, target), number=runs
-    )
+    total_time: float = timeit.timeit(lambda: func(arr, target), number=runs)
     return (total_time / runs) * 1000  # перевод в мс
 
 
@@ -72,14 +70,13 @@ for size in sizes:
     target: int = size - 1  # O(1)
 
     # Замеры времени
-    lin_time: float = measure_time(linear_search, arr, target)
-    bin_time: float = measure_time(binary_search, arr, target)
+    lin_time: float = measure_time(linear_search, arr, target, runs=10)
+    bin_time: float = measure_time(binary_search, arr, target, runs=1000)
 
     linear_times.append(lin_time)
     binary_times.append(bin_time)
 
     print("{:>10} {:>15.4f} {:>15.4f}".format(size, lin_time, bin_time))
-
 
 # Построение графиков
 plt.figure(figsize=(10, 6))
@@ -110,4 +107,3 @@ plt.show()
 print("\nАнализ результатов:")
 print("1. Теоретическая сложность линейного поиска: O(n).")
 print("2. Теоретическая сложность бинарного поиска: O(log n).")
-print("3. Графики подтверждают асимптотику: бинарный поиск растет значительно медленнее.")
