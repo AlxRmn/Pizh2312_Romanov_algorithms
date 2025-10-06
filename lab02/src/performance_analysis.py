@@ -2,7 +2,7 @@
 import timeit
 from collections import deque
 import matplotlib.pyplot as plt
-from linked_list import LinkedList
+from lab02.src.linked_list import LinkedList
 
 
 def measure_time(func, *args, number: int = 1000) -> float:
