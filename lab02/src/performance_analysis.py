@@ -1,8 +1,8 @@
-"""Сравнение производительности list, LinkedList и deque (ЛР-02)."""
+"""Сравнение производительности list, LinkedList и deque."""
 import timeit
 from collections import deque
 import matplotlib.pyplot as plt
-from lab02.src.linked_list import LinkedList
+from linked_list import LinkedList
 
 
 def measure_time(func, *args, number: int = 1000) -> float:
