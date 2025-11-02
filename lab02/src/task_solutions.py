@@ -30,3 +30,20 @@ def is_palindrome(seq: str) -> bool:
         if d.popleft() != d.pop():  # O(1)
             return False
     return True
+
+if __name__ == "__main__":
+    print("=== Проверка сбалансированных скобок ===")
+    examples = ["(a + b) * [c - d]", "([)]", "{[()()]}", "(()", ""]
+    for expr in examples:
+        print(f"{expr!r} -> {is_balanced_brackets(expr)}")
+
+    print("\n=== Симуляция очереди печати ===")
+    jobs_list = ["Документ1", "Фото2", "Отчет3"]
+    print_queue_simulation(jobs_list)
+
+    print("\n=== Проверка палиндромов ===")
+    words = ["level", "Racecar", "python", "А роза упала на лапу Азора"]
+    for word in words:
+        normalized = "".join(ch for ch in word if ch.isalpha())  # убираем пробелы и знаки
+        print(f"{word!r} -> {is_palindrome(normalized)}")
+
