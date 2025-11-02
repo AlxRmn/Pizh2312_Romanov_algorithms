@@ -42,7 +42,7 @@ def run_experiments(sizes: List[int], data_types: List[str], runs: int = 3, csv_
 
 
 if __name__ == "__main__":
-    # Примерные параметры, вы можете менять
+    # Примерные параметры
     sizes = [100, 500, 1000, 5000, 10000]
     data_types = ["random", "sorted", "reversed", "almost_sorted"]
     run_experiments(sizes, data_types, runs=3)

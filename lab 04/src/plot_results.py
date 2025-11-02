@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from collections import defaultdict
 
 
-def load_csv(csv_file: str = "lab04_results.csv"):
+def load_csv(csv_file: str = "lab 04\src\lab04_results.csv"):
     data = defaultdict(list)
     with open(csv_file, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
