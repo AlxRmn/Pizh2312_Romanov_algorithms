@@ -1,9 +1,10 @@
 import csv
 import matplotlib.pyplot as plt
 from collections import defaultdict
+import os
 
 
-def load_csv(csv_file: str = "lab 04\src\lab04_results.csv"):
+def load_csv(csv_file: str = "lab 04/src/lab04_results.csv"):
     data = defaultdict(list)
     with open(csv_file, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -29,7 +30,10 @@ def plot_time_vs_size(data, data_type: str = "random"):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
+
+    save_path = os.path.join(os.path.dirname(__file__), f"time_vs_size_{data_type}.png")
+    plt.savefig(save_path, dpi=300)
+    plt.close()
 
 
 def plot_time_vs_type(data, size: int = 5000):
@@ -49,7 +53,10 @@ def plot_time_vs_type(data, size: int = 5000):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
+
+    save_path = os.path.join(os.path.dirname(__file__), f"time_vs_type_size{size}.png")
+    plt.savefig(save_path, dpi=300)
+    plt.close()
 
 
 if __name__ == "__main__":
