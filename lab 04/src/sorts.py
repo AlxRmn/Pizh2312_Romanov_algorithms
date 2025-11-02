@@ -1,13 +1,13 @@
 from typing import List
 
-pc_info: str = """
+PC_INFO: str = ( """
 Характеристики ПК для тестирования:
 - Процессор: Intel Core i5-10210U @ 1.60GHz
 - Оперативная память: 16 GB DDR4
 - ОС: Windows 10
 - Python: 3.13.2
 """
-print(pc_info)
+)
 
 
 def is_sorted(arr: List[int]) -> bool:
