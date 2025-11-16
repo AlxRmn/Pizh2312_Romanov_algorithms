@@ -45,25 +45,27 @@ def plot_insert_time_vs_load():
     print("Saved lab05_insert_time.png")
 
 def plot_collision_histograms():
-    funcs = [("simple_hash", simple_hash), ("poly_hash", poly_hash), ("djb2", djb2)]
-    plt.figure(figsize=(10, 6))
+    funcs = [("simple_hash", simple_hash), 
+             ("poly_hash", poly_hash), 
+             ("djb2", djb2)]
 
     for name, fn in funcs:
         lengths = analyze_collisions(fn, n_elements=500)
         max_len = max(lengths)
         bins = range(0, max_len + 2)
-        plt.hist(lengths, bins=bins, alpha=0.5, label=name, rwidth=0.8, align="left")
 
-    plt.xlabel("Number of elements in bucket")
-    plt.ylabel("Number of buckets")
-    plt.title("Bucket size distribution for different hash functions")
-    plt.yscale("log")
-    plt.grid(True, which="both", linestyle="--", linewidth=0.5)
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig("lab05_collision_histogram.png")
-    plt.show()
-    print("Saved lab05_collision_histogram.png")
+        plt.figure(figsize=(8, 5))
+        plt.hist(lengths, bins=bins, rwidth=0.9, align="left", color="skyblue", edgecolor="black")
+        plt.xlabel("Number of elements in bucket")
+        plt.ylabel("Number of buckets")
+        plt.title(f"Bucket size distribution — {name}")
+        plt.yscale("log")
+        plt.grid(True, which="both", linestyle="--", linewidth=0.5)
+        plt.tight_layout()
+        plt.savefig(f"collision_histogram_{name}.png")
+        plt.show()
+        print(f"Saved collision_histogram_{name}.png")
+
 
 if __name__ == "__main__":
     plot_insert_time_vs_load()
