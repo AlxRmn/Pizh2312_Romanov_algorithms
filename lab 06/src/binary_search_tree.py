@@ -23,7 +23,6 @@ class BinarySearchTree:
     def __init__(self) -> None:
         self.root: Optional[TreeNode] = None  # O(1)
 
-    # ------------------ Insert ------------------
     def insert(self, key: int) -> None:
         """Вставка ключа в BST.
         Средняя сложность: O(log n), худшая (вырожденное дерево): O(n).
@@ -73,7 +72,6 @@ class BinarySearchTree:
             node = node.right
         return node
 
-    # ------------------ Delete ------------------
     def delete(self, key: int) -> None:
         """Удаление узла с ключом key. Сложность: O(h) -> O(log n) avg, O(n) worst."""
         self.root = self._delete_rec(self.root, key)  # O(h)
@@ -143,7 +141,6 @@ class BinarySearchTree:
         _post(self.root)
         return res
 
-    # ------------------ Iterative in-order ------------------
     def inorder_iterative(self) -> List[int]:
         """Итеративный in-order обход с явным стеком. Сложность O(n), память O(h)."""
         res: List[int] = []
